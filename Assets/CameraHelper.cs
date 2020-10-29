@@ -9,7 +9,7 @@ public class CameraHelper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("camerea = " + Camera.main);
+        // Debug.Log("camerea = " + Camera.main);
     }
 
     // Update is called once per frame

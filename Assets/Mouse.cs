@@ -37,7 +37,7 @@ public class Mouse : MonoBehaviour
     {
         if (collision.tag == "Cake" && !collision.GetComponent<Present>().GetMouseDetectedCake())
         {
-            Debug.Log("Mouse detects cake " + collision.name);
+            // Debug.Log("Mouse detects cake " + collision.name);
             collision.GetComponent<Present>().SetMouseDetectedCake();
             droppedCakeList.Add(collision.gameObject);
         }
@@ -58,12 +58,12 @@ public class Mouse : MonoBehaviour
     {
         if (isGettingCake && !isReturningToStart)
         {
-            Debug.Log("EatCake");
+            // Debug.Log("EatCake");
             isGettingCake = false;
             isReturningToStart = true;
             GameObject _explosion = Instantiate(GameAssets.instance.cakeExplosion, transform.position, Quaternion.identity);
             Destroy(_explosion, 3f);
-            Debug.Log("Target / dropList " + target + " / " + droppedCakeList);
+            // Debug.Log("Target / dropList " + target + " / " + droppedCakeList);
             //Destroy(target);
             if (droppedCakeList.Count > 0)
             {

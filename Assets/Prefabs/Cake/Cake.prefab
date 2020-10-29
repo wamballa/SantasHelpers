@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 2800796205117247661}
   - component: {fileID: 9114273936044180206}
   - component: {fileID: 2800796205117247657}
+  - component: {fileID: 815448153554028699}
   m_Layer: 0
   m_Name: Cake
   m_TagString: Cake
@@ -150,7 +151,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.24958241}
+  m_Offset: {x: -0.002096653, y: -0.123788476}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -161,7 +162,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5008352}
+  m_Size: {x: 0.5010166, y: 0.24924731}
   m_EdgeRadius: 0
 --- !u!114 &2800796205117247657
 MonoBehaviour:
@@ -184,6 +185,7 @@ MonoBehaviour:
   isOnConveyorBelt: 0
   speed: 0
   direction: 0
+  rb: {fileID: 0}
   isCooking: 0
   isAlive: 1
   OutOfMachinePos: {fileID: 0}
@@ -197,3 +199,17 @@ MonoBehaviour:
   - {fileID: 6697403630729842963, guid: 9111f1e38ad0d4d57a237dc091e6a97d, type: 3}
   - {fileID: -2185751804998263790, guid: 9111f1e38ad0d4d57a237dc091e6a97d, type: 3}
   cakeSpriteNum: 0
+  gravity: 1
+  hasMouseDetectedMe: 0
+--- !u!114 &815448153554028699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2800796205117247660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 789c957b57a2243a9aae523f699aaf33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

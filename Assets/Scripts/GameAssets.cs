@@ -6,6 +6,10 @@ public class GameAssets : MonoBehaviour
 {
     public static GameAssets instance = null;
 
+    [Header("Players")]
+    public GameObject playerR;
+    public GameObject playerL;
+
     [Header("Ladders")]
     public Transform[] laddersRight;
     public Transform[] laddersLeft;
@@ -23,9 +27,11 @@ public class GameAssets : MonoBehaviour
     [Header("Packed Positions")]
     public Transform[] packedPositions;
     //public Transform nextFreeSlot;
-
+    [Header("WayPoints")]
+    public Transform [] wayPoints;
     [Header("Debug Mode")]
     public bool debugMode;
+
 
     private void Awake()
     {
