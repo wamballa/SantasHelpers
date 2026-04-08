@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private PlayerController playerController;
+    private GameAssets gameAssets;
+    private bool isInitialized;
 
     public bool IsWalkingLeft { get; set; } = false;
     public bool IsWalkingRight { get; set; } = false;
@@ -26,31 +28,57 @@ public class PlayerMovement : MonoBehaviour
 
     public bool debugMode = false;
 
+    private void Awake()
+    {
+        Initialize();
+    }
+
+    private void OnEnable()
+    {
+        if (!isInitialized)
+        {
+            Initialize();
+        }
+
+        SyncPlayersToCurrentPositions();
+    }
+
     void Start()
+    {
+        if (!isInitialized)
+        {
+            Initialize();
+        }
+
+        SyncPlayersToCurrentPositions();
+    }
+
+    private void Initialize()
     {
         playerController = GetComponent<PlayerController>();
         if (playerController == null)
         {
-            LogError("Missing PlayerController reference.");
+            Debug.LogError("PLAYERMOVEMENT: Missing PlayerController reference.", this);
             enabled = false;
             return;
         }
 
         if (rightPlayerTransform == null || leftPlayerTransform == null)
         {
-            LogError("Assign Right Player Transform and Left Player Transform on PlayerMovement.");
+            Debug.LogError("PLAYERMOVEMENT: Assign Right Player Transform and Left Player Transform on PlayerMovement.", this);
             enabled = false;
             return;
         }
 
-        if (GameAssets.instance == null || GameAssets.instance.RPos == null || GameAssets.instance.LPos == null)
+        gameAssets = ResolveGameAssets();
+        if (gameAssets == null || gameAssets.RPos == null || gameAssets.LPos == null)
         {
-            LogError("Missing GameAssets position references.");
+            Debug.LogError("PLAYERMOVEMENT: Missing GameAssets position references.", this);
             enabled = false;
             return;
         }
 
-        InitiatePlayers();
+        isInitialized = true;
     }
 
     void Update()
@@ -64,26 +92,54 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandlePlayerMove()
     {
+        if (!isInitialized)
+        {
+            return;
+        }
+
         // right
         if (playerController.RightPositionTarget != playerController.RightPositionCurrent)
         {
             // Move
             Log(">> " + playerController.RightPositionTarget);
-            rightPlayerTransform.position = GameAssets.instance.RPos[playerController.RightPositionTarget].position;
+            rightPlayerTransform.position = gameAssets.RPos[playerController.RightPositionTarget].position;
             playerController.RightPositionCurrent = playerController.RightPositionTarget;
         }
         if (playerController.LeftPositionTarget != playerController.LeftPositionCurrent)
         {
             // Move
-            leftPlayerTransform.position = GameAssets.instance.LPos[playerController.LeftPositionTarget].position;
+            leftPlayerTransform.position = gameAssets.LPos[playerController.LeftPositionTarget].position;
             playerController.LeftPositionCurrent = playerController.LeftPositionTarget;
         }
     }
-    void InitiatePlayers()
+    [ContextMenu("Sync Players To Current Positions")]
+    public void SyncPlayersToCurrentPositions()
     {
+        if (!isInitialized)
+        {
+            return;
+        }
+
         Log(">> RPOS = " + playerController.RightPositionCurrent);
-        rightPlayerTransform.position = GameAssets.instance.RPos[playerController.RightPositionCurrent].position;
-        leftPlayerTransform.position = GameAssets.instance.LPos[playerController.LeftPositionCurrent].position;
+        rightPlayerTransform.position = gameAssets.RPos[playerController.RightPositionCurrent].position;
+        leftPlayerTransform.position = gameAssets.LPos[playerController.LeftPositionCurrent].position;
+    }
+
+    private GameAssets ResolveGameAssets()
+    {
+        if (gameAssets != null)
+        {
+            return gameAssets;
+        }
+
+        if (GameAssets.instance != null)
+        {
+            gameAssets = GameAssets.instance;
+            return gameAssets;
+        }
+
+        gameAssets = FindFirstObjectByType<GameAssets>();
+        return gameAssets;
     }
 
     private void Log(string msg)
