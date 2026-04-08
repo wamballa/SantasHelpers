@@ -16,6 +16,11 @@ Rules:
 - `MB-003` Replace placeholder visuals with a cohesive Mario Bros.-inspired warehouse style
 - `MB-004` Add visible touch control guides for left and right player lanes
 - `MB-005` Tune gameplay pacing for short mobile sessions
+- `MB-008` Refactor `GameManager` into smaller gameplay, flow, and HUD responsibilities
+- `MB-009` Replace runtime `Find*` lookups and broad singleton access with serialized references where practical
+- `MB-010` Consolidate overlapping entity state so each major actor has one authoritative state model
+- `MB-011` Remove or complete placeholder scripts and dead code paths
+- `MB-012` Tidy script organization once responsibility boundaries are clearer
 
 ## In Progress
 
