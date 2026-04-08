@@ -6516,6 +6516,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facc4b435a8f3c9429b2fecaea36c0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  touchControlScheme: 0
+  useSafeArea: 1
+  thumbZoneHeight: 0.42
+  thumbZoneVerticalSplit: 0.52
+  centerGapWidth: 0.04
+  vibrateOnAcceptedTouch: 1
   canMove: 1
 --- !u!114 &669040238
 MonoBehaviour:
@@ -9803,6 +9809,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facc4b435a8f3c9429b2fecaea36c0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  touchControlScheme: 0
+  useSafeArea: 1
+  thumbZoneHeight: 0.42
+  thumbZoneVerticalSplit: 0.52
+  centerGapWidth: 0.04
+  vibrateOnAcceptedTouch: 1
   canMove: 1
 --- !u!114 &1061242271
 MonoBehaviour:
@@ -12228,6 +12240,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facc4b435a8f3c9429b2fecaea36c0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  touchControlScheme: 0
+  useSafeArea: 1
+  thumbZoneHeight: 0.42
+  thumbZoneVerticalSplit: 0.52
+  centerGapWidth: 0.04
+  vibrateOnAcceptedTouch: 1
   canMove: 1
 --- !u!114 &1538726768
 MonoBehaviour:
@@ -12255,9 +12273,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightPlayerTransform: {fileID: 669040230}
   leftPlayerTransform: {fileID: 1061242264}
-  debugMode: 0
-  rightPlayerTransform: {fileID: 0}
-  leftPlayerTransform: {fileID: 0}
   debugMode: 0
 --- !u!1 &1546539773
 GameObject:
@@ -13509,6 +13524,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1729719628}
   - component: {fileID: 1729719627}
+  - component: {fileID: 1729719630}
+  - component: {fileID: 1729719629}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -13525,14 +13542,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1729719626}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43ac762cedcf74da3b2dbdd95631cb2a, type: 3}
+  m_Script: {fileID: 11500000, guid: 49dd1a914ac61b54184c1ce43fe25a09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
+  sessionState: {fileID: 0}
+  hudPresenter: {fileID: 0}
   DebugMode: 0
-  isTruckPacked: 0
-  livesText: {fileID: 719412324}
-  debugMode: 1
+  debugMode: 0
 --- !u!4 &1729719628
 Transform:
   m_ObjectHideFlags: 0
@@ -13548,6 +13565,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1729719629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729719626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9fdc1d0dd524f8c8fb2de22b94dca6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameplayHudPresenter
+  scoreText: {fileID: 0}
+  livesText: {fileID: 0}
+  packedCakesText: {fileID: 0}
+  levelText: {fileID: 0}
+--- !u!114 &1729719630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729719626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98206bb9db5f42c09e977665629af2c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameplaySessionState
+  gameplayConfig: {fileID: 11400000, guid: a52ab2d841aa4495ba0dbf94fd8901bc, type: 2}
+  fallbackTruckCapacity: 8
 --- !u!1 &1738068529
 GameObject:
   m_ObjectHideFlags: 0

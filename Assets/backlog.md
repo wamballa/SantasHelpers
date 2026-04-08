@@ -30,3 +30,5 @@ Rules:
 
 - `MB-007` Add a shared project backlog with unique identifiers in `Assets/backlog.md`
 - `MB-008` Refactor `GameManager` into smaller gameplay, flow, and HUD responsibilities
+- `MB-014` Clean up and reorganize active vs legacy scenes
+- `MB-015` Standardize scene naming and update load references

@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private const string MenuSceneName = "Menu";
-    private const string GameplayScenePrefix = "GameLevel";
+    private const string GameplayScenePrefix = "Level";
+    private const string GameOverSceneName = "GameOver";
 
     private enum GameState
     {
@@ -191,7 +192,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(3);
         Debug.Log(GetSceneName() + nameof(GameManager) + $": HandleGameOver. Level = {CurrentLevel}.");
         sessionState?.ClearCurrentLevel();
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene(GameOverSceneName);
     }
 
     public void HandleCakeDroppedEvent()
