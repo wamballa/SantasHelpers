@@ -20,12 +20,13 @@ Rules:
 - `MB-010` Consolidate overlapping entity state so each major actor has one authoritative state model
 - `MB-011` Remove or complete placeholder scripts and dead code paths
 - `MB-012` Tidy script organization once responsibility boundaries are clearer
+- `MB-013` Move additional pacing values from code into `GameplayConfig`
 
 ## In Progress
 
 - `MB-006` Modernize phone input while preserving the discrete Game & Watch movement rules
-- `MB-008` Refactor `GameManager` into smaller gameplay, flow, and HUD responsibilities
 
 ## Done
 
 - `MB-007` Add a shared project backlog with unique identifiers in `Assets/backlog.md`
+- `MB-008` Refactor `GameManager` into smaller gameplay, flow, and HUD responsibilities
